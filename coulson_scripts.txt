@@ -1,0 +1,26 @@
+# lind-glibc
+```
+/wasi-sdk/build/wasi-sdk-22.0/bin/clang-18 -Wno-implicit-function-declaration \
+--target=wasm32-unknown-wasi \
+--sysroot /wasi-sdk/build/wasi-sdk-22.0/share/wasi-sysroot \
+-c crt1.c \
+-o sysroot/lib/wasm32-wasi/crt1.o
+
+/wasi-sdk/build/wasi-sdk-22.0/bin/clang-18 -Wno-implicit-function-declaration \
+--target=wasm32-unknown-wasi \
+--sysroot /wasi-sdk/build/wasi-sdk-22.0/share/wasi-sysroot \
+-c libc_replace.c \
+-fPIC \
+-o sysroot/lib/wasm32-wasi/libc.o
+
+/wasi-sdk/build/wasi-sdk-22.0/bin/llvm-ar rcs sysroot/lib/wasm32-wasi/libc.a sysroot/lib/wasm32-wasi/libc.o
+
+## pwd is /lind-glibc/replace-sysroot/test
+/wasi-sdk/build/wasi-sdk-22.0/bin/clang-18 \
+--target=wasm32-unknown-wasi \
+--sysroot /lind-glibc/replace-sysroot/replace/sysroot \
+-o replace_syscall.wasm \
+replace_syscall.c
+
+wasmer run replace_syscall.wasm
+```
