@@ -3,6 +3,8 @@
 
 unsigned long strlen(const char *str);
 
+void write(const void *buf, int nbyte);
+
 void __wasm_call_dtors(void);
 
 void __wasi_proc_exit(unsigned int exit_code);
