@@ -22,5 +22,12 @@
 -o replace_syscall.wasm \
 replace_syscall.c
 
+## pwd is /lind-glibc/replace-sysroot/test
+/wasi-sdk/build/wasi-sdk-22.0/bin/clang-18 \
+--target=wasm32-unknown-wasi \
+--sysroot /lind-glibc/replace-sysroot/replace/sysroot \
+-o hello.wasm \
+hello.c
+
 wasmer run replace_syscall.wasm
 ```
