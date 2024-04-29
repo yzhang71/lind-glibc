@@ -1,7 +1,9 @@
 #include <libc.h>
 
 int main() {
-    write("Hello from Coulson's WASM!", 27);
+    char str[] = "Hello from Coulson's WASM!";
+    char *buf = str;
+    write(buf, 27);
 
     return 0;
 }
