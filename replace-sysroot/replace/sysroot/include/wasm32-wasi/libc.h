@@ -5,7 +5,7 @@ unsigned long strlen(const char *str);
 
 void write(const void *buf, int nbyte);
 
-void stpcpy(char *s1, const char *s2);
+int stpcpy(char *s1, const char *s2);
 
 void __wasm_call_dtors(void);
 
