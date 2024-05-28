@@ -7,7 +7,7 @@ int main() {
     char str2[] ="--------------------------\n";
     char *buf2 = str2;
     stpcpy(buf2, buf);
-    write(buf2, 28);
+    write(1, buf2, 28);
 
 
 
